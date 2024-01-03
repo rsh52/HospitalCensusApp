@@ -4,12 +4,20 @@
 #'     DO NOT REMOVE.
 #' @import shiny
 #' @noRd
-
 app_ui <- function(request) {
   tagList(
+    # bs_theme_preview(),
     golem_add_external_resources(),
     waiter_preloader(html = waiter_html(), color = "white"),
     page_navbar(
+      theme = bs_theme_update(bslib::bs_theme(),
+                              fg = "#000",
+                              primary = "#008cba",
+                              secondary = "#DBDDDF",
+                              font_scale = NULL,
+                              `enable-shadows` = TRUE,
+                              preset = "litera",
+                              bg = "#fff"),
       nav_panel("Patient Classification Modeling", mod_class_ui("class_1")),
       nav_panel("Census Regression Modeling", mod_regression_ui("regression_1"))
     )
@@ -34,7 +42,7 @@ golem_add_external_resources <- function() {
       path = app_sys("app/www"),
       app_title = "HospitalCensusApp"
     ),
-    includeCSS("https://github.research.chop.edu/pages/CQI/chop-bootstrap/bootstrap-5/bootstrap.min.css"),
+    # includeCSS("inst/app/www/custom.css"),
     useWaiter()
   )
 }
