@@ -10,6 +10,7 @@ app_ui <- function(request) {
     golem_add_external_resources(),
     waiter_preloader(html = waiter_html(), color = "white"),
     page_navbar(
+      title = "Hospital Census Application",
       theme = bs_theme_update(bslib::bs_theme(),
                               fg = "#000",
                               primary = "#008cba",
